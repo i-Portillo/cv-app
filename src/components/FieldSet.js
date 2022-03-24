@@ -1,4 +1,3 @@
-/* eslint-disable no-useless-constructor */
 import React, { Component } from 'react';
 
 class FieldSet extends Component {
@@ -30,7 +29,6 @@ class FieldSet extends Component {
 class Field extends Component {
   constructor(props) {
     super(props);
-
   }
 
   render() {
@@ -52,7 +50,7 @@ class Field extends Component {
       default:
         inputItem =
           <input type={this.props.type}
-            onChange = { (e) => { this.props.onFieldChange(e.target.value)} } />;
+            onChange = { (e) => { this.props.onFieldChange(e.target.value, 'personal', 'firstName') } } />;
     }
     
     return (
