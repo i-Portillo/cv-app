@@ -9,7 +9,7 @@ class Header extends Component {
     render() {
         return (
             <div className='header'>
-                I'm a Header
+                Header
             </div>
         );
     }
