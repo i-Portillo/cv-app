@@ -9,6 +9,7 @@ class CVPrev extends Component {
         return (
             <div>
                 <p>{this.props.personal.firstName} {this.props.personal.lastName}</p>
+                <p>{this.props.personal.title}</p>
             </div>
         );
     }

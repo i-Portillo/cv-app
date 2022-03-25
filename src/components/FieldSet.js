@@ -7,18 +7,26 @@ class FieldSet extends Component {
     this.fields = props.fields;
     this.key = props.key;
   }
+
+  handleChange = (field) => {
+    let newState = {
+      [this.props.name]: field
+    }
+    this.props.onFieldChange(newState);
+  }
   
   render() {
     
     return (
       <div className='field-set'>
-        <h2>{this.props.title}</h2>
+        <h2>{this.props.label}</h2>
           <ul>
             {this.fields.map((field) => {
               return <Field key={field.id}
+                            label={field.label}
                             name={field.name}
                             type={field.type}
-                            onFieldChange={this.props.onFieldChange} />
+                            onFieldChange={this.handleChange} />
             })}
         </ul>
       </div>
@@ -29,6 +37,14 @@ class FieldSet extends Component {
 class Field extends Component {
   constructor(props) {
     super(props);
+
+  }
+
+  handleChange = (value) => {
+    let newState = {
+      [this.props.name]: value,
+    }
+    this.props.onFieldChange(newState);
   }
 
   render() {
@@ -50,12 +66,12 @@ class Field extends Component {
       default:
         inputItem =
           <input type={this.props.type}
-            onChange = { (e) => { this.props.onFieldChange(e.target.value, 'personal', 'firstName') } } />;
+            onChange = { (e) => { this.handleChange(e.target.value) } } />;
     }
     
     return (
       <li>
-        <label>{this.props.name}</label>
+        <label>{this.props.label}</label>
         {inputItem}
       </li>
       );

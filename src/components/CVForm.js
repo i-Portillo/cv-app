@@ -15,7 +15,8 @@ class CVForm extends Component {
             <div>
                 {this.forms.map((form) => {
                     return <FieldSet key={form.id}
-                                    title={form.title}
+                                    label={form.label}
+                                    name={form.name}
                                     fields={form.fields}
                                     onFieldChange={this.props.onFieldChange} />
                 })}
