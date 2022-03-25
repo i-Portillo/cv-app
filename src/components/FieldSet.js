@@ -37,7 +37,6 @@ class FieldSet extends Component {
 class Field extends Component {
   constructor(props) {
     super(props);
-
   }
 
   handleChange = (value) => {
