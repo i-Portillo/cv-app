@@ -41,21 +41,21 @@ class Main extends Component {
                 name: "contact",
                 fields: [
                     {
-                        label: "Job Title",
-                        name: "jobTitle",
-                        type: "text",
+                        label: "Email",
+                        name: "email",
+                        type: "email",
                         id: uniqid(),
                     },
                     {
-                        label: "Job Description",
-                        name: "jobDescription",
+                        label: "Phone",
+                        name: "phone",
+                        type: "tel",
+                        id: uniqid(),
+                    },
+                    {
+                        label: "Address",
+                        name: "address",
                         type: "textarea",
-                        id: uniqid(),
-                    },
-                    {
-                        label: "Date",
-                        name: "date",
-                        type: "date",
                         id: uniqid(),
                     },
                 ],
@@ -80,7 +80,7 @@ class Main extends Component {
                     {
                         label: "Date",
                         name: "date",
-                        type: "date-range",
+                        type: "date",
                         id: uniqid(),
                     },
                 ],
@@ -92,10 +92,18 @@ class Main extends Component {
             personal: {
                 firstName: '',
                 lastName: '',
+                title: '',
             },
             contact: {
-
-            }
+                email: '',
+                phone: '',
+                address: '',
+            },
+            experience: {
+                jobTitle: '',
+                jobDescription: '',
+                date: '',
+            },
         };
     }
 
@@ -108,7 +116,9 @@ class Main extends Component {
         return (
             <main>
                 <CVForm forms={this.forms} onFieldChange={this.handleChange}/>
-                <CVPrev personal={this.state.personal} contact={this.state.contact}/>
+                <CVPrev personal={this.state.personal}
+                        contact={this.state.contact}
+                        experience={this.state.experience}/>
             </main>
             );
         }

@@ -53,7 +53,7 @@ class Field extends Component {
     switch(this.props.type) {
       case 'textarea':
         inputItem =
-          <textarea />;
+          <textarea onChange = { (e) => { this.handleChange(e.target.value) } }/>;
         break;
       case 'date-range':
         inputItem =
